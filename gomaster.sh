@@ -58,10 +58,10 @@ done
 
 if [ -n "$err_repos" ]; then
     printf "${RED}==============================================${NC}\n"
-    printf "Found some dirty working trees. Please have a look.\n"
+    printf "Found some dirty working trees. Please have a look.\n\n"
 
     for i in ${!err_repos[@]}; do
-        printf "  - %s    => %s" ${err_repos[$i]} ${err_repos_path[$i]}
+        printf "  - %s    => %s\n" ${err_repos[$i]} ${err_repos_path[$i]}
     done
     echo
     printf "${RED}==============================================${NC}\n"
