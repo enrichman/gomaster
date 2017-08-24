@@ -34,6 +34,14 @@ for repo in $repos; do
         printf "${GREEN}===\n"
         printf "===========================================================${NC}\n" $remote
 
+        if [ -f .gitmodules ]; then
+            result=$(git submodule update --init --recursive)
+            if [[ -n $result ]]; then
+                printf "${CYAN}\n -> Updating git submodules\n\n${NC}"
+            fi
+            echo $result
+        fi
+
         # Working tree is dirty
         if [[ -n $(git status -s) ]]; then
 
